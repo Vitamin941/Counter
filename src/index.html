@@ -14,22 +14,27 @@
             <span id="result" class="math-input">17</span>
         </div>
         <div class="operations-container">
-            <button class="operation-btn num">1</button>
-            <button class="operation-btn num">2</button>
-            <button class="operation-btn num">3</button>
-            <button class="operation-btn">+</button>
-            <button class="operation-btn num">4</button>
-            <button class="operation-btn num">5</button>
-            <button class="operation-btn num">6</button>
-            <button class="operation-btn">-</button>
-            <button class="operation-btn num">7</button>
-            <button class="operation-btn num">8</button>
-            <button class="operation-btn num">9</button>
-            <button class="operation-btn">*</button>
-            <button id="zero" class="operation-btn">0</button>
-            <button class="operation-btn">C</button>
-            <button class="operation-btn">=</button>
+            <button id="one" class="operation-btn num" onclick="addSymbol(this.id)">1</button>
+            <button id="two" class="operation-btn num" onclick="addSymbol(this.id)">2</button>
+            <button id="three" class="operation-btn num" onclick="addSymbol(this.id)">3</button>
+            <button id="plus" class="operation-btn operation" onclick="addSymbol(this.id)">+</button>
+
+            <button id="four" class="operation-btn num" onclick="addSymbol(this.id)">4</button>
+            <button id="five" class="operation-btn num" onclick="addSymbol(this.id)">5</button>
+            <button id="six" class="operation-btn num" onclick="addSymbol(this.id)">6</button>
+            <button id="minus" class="operation-btn operation" onclick="addSymbol(this.id)">-</button>
+
+            <button id="seven" class="operation-btn num" onclick="addSymbol(this.id)">7</button>
+            <button id="eight" class="operation-btn num" onclick="addSymbol(this.id)">8</button>
+            <button id="nine" class="operation-btn num" onclick="addSymbol(this.id)">9</button>
+            <button id="multiply" class="operation-btn operation" onclick="addSymbol(this.id)">*</button>
+            
+            <button id="zero" class="operation-btn" onclick="addSymbol(this.id)">0</button>
+            <button class="operation-btn" onclick="clear()">C</button>
+            <button class="operation-btn" onclick="performOperation()">=</button>
         </div>
     </main>
+
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
