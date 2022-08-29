@@ -19,42 +19,61 @@ const addSymbol = idBtn => {
         numRight += btnText    
     }
     problemSpan.innerText = numLeft + ' ' + symbol + ' ' + numRight
+    console.info(problemSpan.innerText)
+}
+
+const resetSign = () => {
+    console.log("reset")
+    if (symbol === '') {
+        numLeft = (Number(numLeft) * (-1)).toString()
+        return
+    }
+    numRight = (Number(numRight) * (-1)).toString()
 }
 
 const performOperation = () => {
     operators = problemSpan.innerText.split(' ')
-    let leftNum = Number(operators[0])
-    let rightNum = Number(operators[2]) 
+    let leftOperand = Number(operators[0])
+    let rightOperand = Number(operators[2]) 
     let sign = operators[1]
     if (operators.length !== 3) { 
         return undefined
     }
-    console.log(sign)
     switch(sign) {
         case '+': {
-            resultSpan.innerText = leftNum + rightNum
+            resultSpan.innerText = leftOperand + rightOperand
             break
         }
 
         case '*': {
-            resultSpan.innerText = leftNum * rightNum
+            resultSpan.innerText = leftOperand * rightOperand
             break
         }
 
         case '-': {
-            resultSpan.innerText = leftNum - rightNum
+            resultSpan.innerText = leftOperand - rightOperand
+            break
+        }
+
+        case '%': {
+            resultSpan.innerText = (rightOperand / 100) * leftOperand
             break
         }
 
         default: {
-            resultSpan.innerText =  leftNum / rightNum
+            resultSpan.innerText =  leftOperand / rightOperand
             break
         }
 
     }
 }
 
-const clear = () => {
-    problemSpan.innerText = ''
-    resultSpan.innerText = 'resultSpan.innerText' 
+const clean = () => {
+    let calcSpans = document.querySelectorAll("span")
+    calcSpans.forEach(span => {
+        span.innerText = ''
+    });
+    numLeft = ''
+    numRight = ''
+    symbol = ''
 }
