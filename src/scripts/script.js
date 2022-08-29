@@ -6,24 +6,23 @@ var symbol = ''
 
 const addSymbol = idBtn => {
     let btn = document.getElementById(idBtn)
+    let btnText = btn.innerText
     if (btn.classList.contains("operation") && (numLeft.length !== 0)) {
-        symbol = btn.innerText
-        console.log(symbol)
+        symbol = btnText
     }
     
     if (btn.classList.contains("num") && (symbol === '')) {
-        numLeft += btn.innerText
+        numLeft += btnText
     }
         
     if (btn.classList.contains("num") && (symbol !== '')) {
-        numRight += btn.innerText    
+        numRight += btnText    
     }
     problemSpan.innerText = numLeft + ' ' + symbol + ' ' + numRight
 }
 
 const performOperation = () => {
     operators = problemSpan.innerText.split(' ')
-    console.log(operators)
     let leftNum = Number(operators[0])
     let rightNum = Number(operators[2]) 
     let sign = operators[1]
@@ -56,6 +55,6 @@ const performOperation = () => {
 }
 
 const clear = () => {
-    problemSpan.innerText = ' '
-    resultSpan.innerText = ' '
+    problemSpan.innerText = ''
+    resultSpan.innerText = 'resultSpan.innerText' 
 }
