@@ -34,6 +34,7 @@ main {
   width: 100%;
   font-size: 2rem;
   line-height: 3rem;
+  min-height: 3rem;
   color: #f2f2f4;
 }
 .result-container span:first-child {
@@ -68,6 +69,12 @@ button {
 }
 .operation-btn:hover {
   background-color: aquamarine;
+}
+.operation-btn:first-child {
+  color: red;
+}
+.operation-btn:last-child {
+  background-color: #2DD3C5;
 }
 
 #zero {

@@ -50,6 +50,7 @@ main {
         width: 100%;
         font-size: 2rem;
         line-height: 3rem;
+        min-height: 3rem;
         color: rgba($color: $result-color, $alpha: 1.0);
 
         &:first-child {
@@ -88,6 +89,14 @@ button {
 
     &:hover {
         background-color: aquamarine;
+    }
+
+    &:first-child {
+        color:red;
+    }
+
+    &:last-child {
+        background-color: #2DD3C5;
     }
 
 }
