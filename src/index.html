@@ -14,7 +14,7 @@
             <span id="result" class="math-input">17</span>
         </div>
         <div class="operations-container">
-            <button class="operation-btn" onclick="clean()">C</button>
+            <button id="clear" class="operation-btn" onclick="clean()">C</button>
             <button id="percent" class="operation-btn operation" onclick="addSymbol(this.id)">%</button>
             <button id="sign" class="operation-btn num" onclick="resetSign(this.id)">+/-</button>
             <button id="divide" class="operation-btn operation" onclick="addSymbol(this.id)">/</button>
@@ -35,7 +35,7 @@
             <button id="multiply" class="operation-btn operation" onclick="addSymbol(this.id)">*</button>
             
             <button id="zero" class="operation-btn num" onclick="addSymbol(this.id)">0</button>
-            <button id="one" class="operation-btn num" onclick="addSymbol(this.id)">.</button>
+            <button id="point" class="operation-btn num" onclick="addDelimiter()">.</button>
             <button class="operation-btn" onclick="performOperation()">=</button>
         </div>
     </main>

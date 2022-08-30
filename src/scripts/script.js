@@ -2,33 +2,48 @@ const problemSpan = document.getElementById("problem")
 const resultSpan = document.getElementById("result")
 var numLeft = ''
 var numRight = ''
-var symbol = ''
+var sign = ''
 
 const addSymbol = idBtn => {
     let btn = document.getElementById(idBtn)
     let btnText = btn.innerText
     if (btn.classList.contains("operation") && (numLeft.length !== 0)) {
-        symbol = btnText
+        sign = btnText
     }
     
-    if (btn.classList.contains("num") && (symbol === '')) {
+    if (btn.classList.contains("num") && (sign === '')) {
         numLeft += btnText
     }
         
-    if (btn.classList.contains("num") && (symbol !== '')) {
+    if (btn.classList.contains("num") && (sign !== '')) {
         numRight += btnText    
     }
-    problemSpan.innerText = numLeft + ' ' + symbol + ' ' + numRight
-    console.info(problemSpan.innerText)
+    updateText([numLeft, sign, numRight])
 }
 
 const resetSign = () => {
-    console.log("reset")
-    if (symbol === '') {
-        numLeft = (Number(numLeft) * (-1)).toString()
-        return
+    if (sign === '') {
+        numLeft = (-1 * Number(numLeft)).toString()
     }
-    numRight = (Number(numRight) * (-1)).toString()
+
+    else {
+        numRight = (-1 * Number(numRight)).toString()
+    } 
+
+    updateText([numLeft, sign, numRight])
+}
+
+const addDelimiter = () => {
+    if ((sign === '') && (numLeft.length !== 0)) {
+        numLeft += '.'
+        console.log("add point to left number")
+    }
+    
+    if ((sign !== '') && (numRight.length !== 0)) {
+        numRight += '.'
+        console.log("add point to right number")
+    }
+    updateText([numLeft, sign, numRight])
 }
 
 const performOperation = () => {
@@ -75,5 +90,9 @@ const clean = () => {
     });
     numLeft = ''
     numRight = ''
-    symbol = ''
+    sign = ''
+}
+
+const updateText = (operators) => {
+    problemSpan.innerText = operators[0] + ' ' + operators[1] + ' ' + operators[2];
 }
